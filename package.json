@@ -31,7 +31,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 npm run wbda",
-    "wbda": "react-scripts build",
+    "wbda": "cross-env CI=false npm run otrawbda",
+    "otrawbda": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
