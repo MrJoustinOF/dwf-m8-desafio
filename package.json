@@ -30,11 +30,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 npm run wbda",
-    "wbda": "cross-env CI=false npm run otrawbda",
-    "otrawbda": "react-scripts build",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 npm run setcifalse",
+    "setcifalse": "cross-env CI=false npm run finalstep",
+    "finalstep": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "xd": "serve -s build"
   },
   "eslintConfig": {
     "extends": [

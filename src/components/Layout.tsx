@@ -6,12 +6,12 @@ import { authState } from "./../utils/atoms";
 import { Navbar } from "./../ui/Navbar";
 
 export const Layout = () => {
-  const [auth, setAuth]: any = useRecoilState(authState);
+  const [{ user }, setAuth]: any = useRecoilState(authState);
 
   useEffect(() => {
     const token: any = localStorage.getItem("token");
 
-    if (token && !auth.user.email) {
+    if (token && !user.email) {
       try {
         const user: any = decodeToken(token);
         setAuth({
@@ -22,7 +22,7 @@ export const Layout = () => {
         console.log(error);
       }
     }
-  }, []);
+  }, [user.email, setAuth]);
 
   return (
     <>

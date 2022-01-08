@@ -26,7 +26,7 @@ export const MeForm = () => {
     setName(user.name ? user.name : "");
     setPassword(user.password ? user.password : "");
     setConfirmPass(user.password ? user.password : "");
-  }, [loged, user]);
+  }, [loged, user, email, navigate]);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -57,7 +57,7 @@ export const MeForm = () => {
 
     if (loged) {
       const { msg, token } = await (
-        await fetch("http://localhost:3001/api/users/" + id, {
+        await fetch("http://m7-desafio-jous.herokuapp.com/api/users/" + id, {
           method: "PUT",
           body: JSON.stringify({
             name,
@@ -93,7 +93,7 @@ export const MeForm = () => {
       }
     } else if (!loged && email) {
       const { msg, token } = await (
-        await fetch("http://localhost:3001/api/users", {
+        await fetch("http://m7-desafio-jous.herokuapp.com/api/users", {
           method: "POST",
           body: JSON.stringify({
             name,

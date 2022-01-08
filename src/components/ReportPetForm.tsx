@@ -33,7 +33,7 @@ export const ReportPetForm = () => {
       setGeoLoc({ lat, lng });
       setRefPlace(refPlace);
     }
-  }, [petOnEdit, auth]);
+  }, [petOnEdit, auth, navigate]);
 
   useEffect(() => {
     return () => {
@@ -70,7 +70,7 @@ export const ReportPetForm = () => {
 
       try {
         const { msg } = await (
-          await fetch("http://localhost:3001/api/pets/", {
+          await fetch("http://m7-desafio-jous.herokuapp.com/api/pets/", {
             method: "POST",
             body: JSON.stringify({
               name,
@@ -95,7 +95,7 @@ export const ReportPetForm = () => {
         ]);
       }
     } else if (errs.length === 0 && Object.keys(petOnEdit).length !== 0) {
-      const url = `http://localhost:3001/api/pets/${petOnEdit.id}`;
+      const url = `http://m7-desafio-jous.herokuapp.com/api/pets/${petOnEdit.id}`;
       const authorization = "bearer " + localStorage.getItem("token");
       const { found } = petOnEdit;
       const { lat, lng } = geoLoc;
@@ -130,7 +130,7 @@ export const ReportPetForm = () => {
   };
 
   const handleSetPetFound = async () => {
-    const url = `http://localhost:3001/api/pets/found/${petOnEdit.id}`;
+    const url = `http://m7-desafio-jous.herokuapp.com/api/pets/found/${petOnEdit.id}`;
     const authorization = "bearer " + localStorage.getItem("token");
     const { msg } = await (
       await fetch(url, {
@@ -147,7 +147,7 @@ export const ReportPetForm = () => {
   };
 
   const handleDeletePet = async () => {
-    const url = `http://localhost:3001/api/pets/${petOnEdit.id}`;
+    const url = `http://m7-desafio-jous.herokuapp.com/api/pets/${petOnEdit.id}`;
     const authorization = "bearer " + localStorage.getItem("token");
     const { msg } = await (
       await fetch(url, {

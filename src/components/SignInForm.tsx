@@ -21,7 +21,7 @@ export const SignInForm = () => {
     if (loged) {
       navigate("/");
     }
-  }, [loged]);
+  }, [loged, navigate]);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -40,7 +40,7 @@ export const SignInForm = () => {
 
     if (errs.length === 0 && mode !== "password") {
       const { created } = await (
-        await fetch("http://localhost:3001/api/users/" + email)
+        await fetch("http://m7-desafio-jous.herokuapp.com/api/users/" + email)
       ).json();
 
       if (created) {
@@ -57,7 +57,7 @@ export const SignInForm = () => {
       }
     } else if (errs.length === 0 && mode === "password") {
       const { msg, token } = await (
-        await fetch("http://localhost:3001/api/users/token", {
+        await fetch("http://m7-desafio-jous.herokuapp.com/api/users/token", {
           method: "POST",
           body: JSON.stringify({
             email,
