@@ -36,7 +36,7 @@ export const SendReportForm = ({ pet, onClick }: SendReportFormProps) => {
 
     if (errs.length === 0) {
       const { msg } = await (
-        await fetch("http://m7-desafio-jous.herokuapp.com/api/sendmail", {
+        await fetch("https://m7-desafio-jous.herokuapp.com/api/sendmail", {
           method: "POST",
           body: JSON.stringify({
             name,
