@@ -80,7 +80,7 @@ export const Navbar = () => {
           </div>
 
           <img
-            src="./img/burguerbtn.png"
+            src="./img/burguerBtn.png"
             alt="burguer btn"
             className="btnMenu inline-block md:hidden cursor-pointer"
             onClick={handleNav}
