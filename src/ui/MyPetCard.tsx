@@ -26,7 +26,7 @@ export const MyPetCard = ({ pet }: MyPetCardProps) => {
           <p className="uppercase">{refPlace}</p>
         </div>
         <img
-          src="./img/editIcon.png"
+          src="/src/img/editIcon.png"
           alt="edit-icon"
           className="cursor-pointer w-6 h-6"
           onClick={handleClick}

@@ -57,7 +57,7 @@ export const MeForm = () => {
 
     if (loged) {
       const { msg, token } = await (
-        await fetch("https://m7-desafio-jous.herokuapp.com/api/users/" + id, {
+        await fetch("http://localhost:3001/api/users/" + id, {
           method: "PUT",
           body: JSON.stringify({
             name,
@@ -93,7 +93,7 @@ export const MeForm = () => {
       }
     } else if (!loged && email) {
       const { msg, token } = await (
-        await fetch("https://m7-desafio-jous.herokuapp.com/api/users", {
+        await fetch("http://localhost:3001/api/users", {
           method: "POST",
           body: JSON.stringify({
             name,

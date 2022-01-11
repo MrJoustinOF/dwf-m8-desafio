@@ -13,7 +13,7 @@ export const ReportPetForm = () => {
   const [auth]: any = useRecoilState(authState);
   const [petOnEdit, setPetOnEdit]: any = useRecoilState(petOnEditState);
   const [name, setName] = useState("");
-  const [imageData, setImageData] = useState("./img/bg-image.png");
+  const [imageData, setImageData] = useState("/src/img/bg-image.png");
   const [geoLoc, setGeoLoc] = useState({ lat: 0, lng: 0 });
   const [refPlace, setRefPlace] = useState("");
   const [errors, setErrors]: any = useState([]);
@@ -49,7 +49,7 @@ export const ReportPetForm = () => {
       errs.push("Todos los campos son obligatorios");
     }
 
-    if (imageData === "./img/bg-image.png") {
+    if (imageData === "/src/img/bg-image.png") {
       errs.push("Debes agregar una imagen de tu mascota");
     }
 
@@ -70,7 +70,7 @@ export const ReportPetForm = () => {
 
       try {
         const { msg } = await (
-          await fetch("https://m7-desafio-jous.herokuapp.com/api/pets/", {
+          await fetch("http://localhost:3001/api/pets/", {
             method: "POST",
             body: JSON.stringify({
               name,
@@ -95,7 +95,7 @@ export const ReportPetForm = () => {
         ]);
       }
     } else if (errs.length === 0 && Object.keys(petOnEdit).length !== 0) {
-      const url = `https://m7-desafio-jous.herokuapp.com/api/pets/${petOnEdit.id}`;
+      const url = `http://localhost:3001/api/pets/${petOnEdit.id}`;
       const authorization = "bearer " + localStorage.getItem("token");
       const { found } = petOnEdit;
       const { lat, lng } = geoLoc;
@@ -130,7 +130,7 @@ export const ReportPetForm = () => {
   };
 
   const handleSetPetFound = async () => {
-    const url = `https://m7-desafio-jous.herokuapp.com/api/pets/found/${petOnEdit.id}`;
+    const url = `http://localhost:3001/api/pets/found/${petOnEdit.id}`;
     const authorization = "bearer " + localStorage.getItem("token");
     const { msg } = await (
       await fetch(url, {
@@ -147,7 +147,7 @@ export const ReportPetForm = () => {
   };
 
   const handleDeletePet = async () => {
-    const url = `https://m7-desafio-jous.herokuapp.com/api/pets/${petOnEdit.id}`;
+    const url = `http://localhost:3001/api/pets/${petOnEdit.id}`;
     const authorization = "bearer " + localStorage.getItem("token");
     const { msg } = await (
       await fetch(url, {
@@ -186,7 +186,6 @@ export const ReportPetForm = () => {
         </div>
 
         <MyMapbox
-          geoloc={geoLoc}
           setGeoloc={setGeoLoc}
           refPlace={refPlace}
           setRefPlace={setRefPlace}

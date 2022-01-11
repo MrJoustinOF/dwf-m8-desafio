@@ -27,7 +27,7 @@ export const Navbar = () => {
     <div className="bg-main flex justify-between items-center p-3">
       <Link to="/">
         <img
-          src="./img/pawprint.png"
+          src="/src/img/pawprint.png"
           alt="pawprint-icon"
           className="cursor-pointer"
         />
@@ -80,7 +80,7 @@ export const Navbar = () => {
           </div>
 
           <img
-            src="./img/burguerBtn.png"
+            src="/src/img/burguerBtn.png"
             alt="burguer btn"
             className="btnMenu inline-block md:hidden cursor-pointer"
             onClick={handleNav}

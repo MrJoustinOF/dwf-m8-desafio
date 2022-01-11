@@ -36,7 +36,7 @@ export const SendReportForm = ({ pet, onClick }: SendReportFormProps) => {
 
     if (errs.length === 0) {
       const { msg } = await (
-        await fetch("https://m7-desafio-jous.herokuapp.com/api/sendmail", {
+        await fetch("http://localhost:3001/api/sendmail", {
           method: "POST",
           body: JSON.stringify({
             name,
@@ -65,7 +65,7 @@ export const SendReportForm = ({ pet, onClick }: SendReportFormProps) => {
       <div className="bg-white w-60 md:w-96 px-4 py-8 rounded">
         <div className="flex justify-end">
           <img
-            src="./img/closeIcon.png"
+            src="/src/img/closeIcon.png"
             alt="close-icon"
             className="closeFormButton w-4 h-4 cursor-pointer"
             onClick={onClick}

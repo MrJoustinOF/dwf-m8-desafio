@@ -5,14 +5,12 @@ import { FormInput } from "./FormInput";
 import { Button } from "./Button";
 
 type MyMapboxProps = {
-  geoloc: any;
   setGeoloc: (any: any) => any;
   refPlace: string;
   setRefPlace: (any: any) => any;
 };
 
 export const MyMapbox = ({
-  geoloc,
   setGeoloc,
   refPlace,
   setRefPlace,
@@ -32,8 +30,8 @@ export const MyMapbox = ({
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [0.0, 0.0],
-      zoom: 3,
+      // center: [0.0, 0.0],
+      // zoom: 3,
     });
   });
 
