@@ -11,7 +11,7 @@ export const useFetchNearPets = ({ lat, lng }: useFetchNearPetsProps) => {
 
   const fetchNearPets = async () => {
     if (lat && lng) {
-      const url = `http://localhost:3001/api/pets/near/${lat}/${lng}`;
+      const url = `https://m7-desafio-jous.herokuapp.com/api/pets/near/${lat}/${lng}`;
       const nearPets = await (await fetch(url)).json();
 
       setPets(nearPets);
